@@ -4,7 +4,7 @@
 _Josh B_ - _Shruti S_ - _Alex H_
 
 ## Objective:
-The use case for our project is to aggregate and serve transit times from multiple source locations to a single target destination in a major transit hub. We’ve identified Penn Station in NY as our target destination and will provide commuter transit times from x source locations across different modes of transportation (bus, train).
+
 
 ## Consumers:
 The target consumers are daily commuters who are looking to identify the most efficient path to commute from their preferred source location to NY Penn Station. In reality they would access this data via app from either the android or apple os. 
