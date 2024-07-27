@@ -20,5 +20,8 @@ The target consumers are daily commuters who are looking to identify the most ef
 
 
 ## Architecture:
+![architecture_earthquakes drawio](https://github.com/user-attachments/assets/24ceca37-1c53-45cd-b4ca-7420404296e7)
 
+## Modeling
+![dim_model_earthquakes drawio](https://github.com/user-attachments/assets/773c7714-f0e6-408d-b522-f668ba466f00)
 
