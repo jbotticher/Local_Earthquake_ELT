@@ -1,7 +1,7 @@
-# earthquake_elt
+# Data Engineering Camp Capstone Project
 
-# **Project Team 6 DEC**
-_Josh B_ - _Shruti S_ - _Alex H_
+## **Earthquakes ELT**
+_Joshua Botticher_
 
 ## Objective:
 
