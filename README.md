@@ -7,12 +7,10 @@ _Joshua Botticher_
 
 
 ## Consumers:
-The target consumers are daily commuters who are looking to identify the most efficient path to commute from their preferred source location to NY Penn Station. In reality they would access this data via app from either the android or apple os. 
+
 
 ## Questions We Want To Answer:
-1) Given your preferred source location, what is the average transit time to Penn Station for typical commuting hours (6-9) historically.
-2) Given your preferred source location, what is the average transit time to Penn Station for typical commuting hours (6-9) today.
-3) What source locations (of the ones provided) and modes are the most efficient in travel time to Penn Station.
+1) 
 
 | `Source Name`  | `Source Type` | `Source Docs`                               | `Endpoint` |
 | -------------  | ------------- | ------------                                | -----------|
