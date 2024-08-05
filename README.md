@@ -18,7 +18,8 @@ _Joshua Botticher_
 
 
 ## Architecture:
-![architecture_earthquakes drawio](https://github.com/user-attachments/assets/0ad71799-e2fc-4b18-900e-560a7454b272)
+<img width="668" alt="Architecture" src="https://github.com/user-attachments/assets/1055687a-fff1-47a5-b144-bdfdd57ea103">
+
 
 
 ## Modeling
