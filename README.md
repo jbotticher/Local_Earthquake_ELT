@@ -4,7 +4,7 @@
 _Joshua Botticher_
 
 ## Objective:
-The objective of this project is to create a real-time monitoring system that visualizes earthquake data, and dashboards using historical data from the USGS Earthquake API for academic and public use.
+The objective of this project is to create a real-time monitoring system that visualizes earthquake data, and dashboards using historical data from the USGS Earthquake API for public use.
 
 ## Consumers:
 - Researchers: They use the data for analyzing seismic activity patterns and predicting future events.
