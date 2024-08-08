@@ -23,6 +23,7 @@ class S3Client:
             logger.error(f"Client error while uploading to S3: {e}")
             raise
 
+
     def move_old_files(self, current_prefix: str, historical_prefix: str):
         try:
             response = self.s3_client.list_objects_v2(Bucket=self.bucket_name, Prefix=current_prefix)
@@ -39,5 +40,3 @@ class S3Client:
         except ClientError as e:
             logger.error(f"Client error while moving files in S3: {e}")
             raise
-
-

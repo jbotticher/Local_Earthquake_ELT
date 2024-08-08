@@ -7,49 +7,46 @@ from connectors.usgs_client import USGSClient
 import datetime
 import logging
 
-#Configure Logging
+# Configure Logging
 logging.basicConfig(level=logging.DEBUG)
 logger = logging.getLogger(__name__)
 
 # Configure environmental variables
 load_dotenv()
 
+# Define start_time and end_time
+start_time = datetime.datetime.utcnow() - datetime.timedelta(days=1)  # Example: 1 day ago
+end_time = datetime.datetime.utcnow()
+
+# Format dates
+start_time_str = start_time.strftime('%Y-%m-%dT%H:%M:%SZ')
+end_time_str = end_time.strftime('%Y-%m-%dT%H:%M:%SZ')
+
 @op
 def fetch_earthquake_data() -> dict:
-    start_time_str = "2024-08-06T00:00:00Z"
-    end_time_str = "2024-08-07T00:00:00Z"
     client = USGSClient(os.getenv('USGS_URL'))
     return client.fetch_data(start_time_str, end_time_str)
- 
 
 @op
 def move_old_files() -> None:
     s3_client = S3Client(os.getenv('S3_BUCKET'), os.getenv('AWS_REGION'))
     s3_client.move_old_files(os.getenv('CURRENT_PREFIX'), os.getenv('HISTORICAL_PREFIX'))
 
-
-# # @op
-# # def upload_to_s3(data: dict) -> None:
-# #     s3_client = S3Client(os.getenv('S3_BUCKET'), os.getenv('AWS_REGION'))
-# #     filename = f"{data['start_time']}.json"
-# #     s3_key = f"{os.getenv('CURRENT_PREFIX')}/{filename}"
-# #     s3_client.upload_to_s3(data, s3_key)
+# @op
+# def upload_to_s3(data: dict) -> None:
+#     s3_client = S3Client(os.getenv('S3_BUCKET'), os.getenv('AWS_REGION'))
+#     filename = f"{start_time_str}.json"
+#     s3_key = f"{os.getenv('CURRENT_PREFIX')}/{filename}"
+#     s3_client.upload_to_s3(data, s3_key)
 
 @op
 def upload_to_s3(data: dict) -> None:
     s3_client = S3Client(os.getenv('S3_BUCKET'), os.getenv('AWS_REGION'))
-    logger.debug(f"Data received for S3 upload: {data}")
-    try:
-        filename = f"{data['start_time']}.json"
-    except KeyError as e:
-        logger.error(f"Missing expected key in data: {e}")
-        raise
+    filename = f"{start_time_str}.json"
     s3_key = f"{os.getenv('CURRENT_PREFIX')}/{filename}"
+    logger.debug(f"Filename: {filename}")
+    logger.debug(f"S3 Key: {s3_key}")
     s3_client.upload_to_s3(data, s3_key)
-
-
-
-
 
 @op
 def trigger_sync() -> None:
