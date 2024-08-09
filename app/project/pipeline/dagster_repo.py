@@ -1,5 +1,5 @@
 from dagster import repository
-from pipeline.dagster_pipeline import earthquake_pipeline
+from earthquake_elt.app.project.pipeline.dagster_pipeline_inc import earthquake_pipeline
 
 @repository
 def my_repository():
