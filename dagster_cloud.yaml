@@ -1,4 +1,0 @@
-locations:
-  - code_source:
-      package_name: dagster_elt.dagster_elt
-    location_name: dagster_elt

@@ -3,6 +3,7 @@ SELECT
     l.location_id,
     t.time_id,
     e.event_id,
+    e.depth,
     f.magnitude,
     f.felt_reports,
     f.cdi,
@@ -23,7 +24,8 @@ SELECT
     f.load_id,
     f.load_timestamp,
     f.batch_id,
-    t.updated_timestamp
+    t.updated_timestamp,
+    f.event_time
 
 
 FROM

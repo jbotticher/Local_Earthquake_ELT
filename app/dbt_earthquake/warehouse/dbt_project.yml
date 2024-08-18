@@ -36,3 +36,5 @@ models:
       group: dbt_earthquake
   dbt_earthquake:
     +materialized: table
+    views:       
+      +materialized: view
