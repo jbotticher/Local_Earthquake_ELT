@@ -1,0 +1,61 @@
+Running with dbt=1.7.2
+Registered adapter: snowflake=1.7.2
+Found 20 models, 1 source, 0 exposures, 0 metrics, 430 macros, 0 groups, 0 semantic models
+
+Concurrency: 10 threads (target='dev')
+
+1 of 20 START sql table model dbt.stg_flatten_raw .............................. [RUN]
+1 of 20 OK created sql table model dbt.stg_flatten_raw ......................... [[32mSUCCESS 1[0m in 17.48s]
+2 of 20 START sql table model dbt.stg_dedup_raw ................................ [RUN]
+2 of 20 OK created sql table model dbt.stg_dedup_raw ........................... [[32mSUCCESS 1[0m in 5.24s]
+3 of 20 START sql table model dbt.dim_event .................................... [RUN]
+4 of 20 START sql table model dbt.dim_location ................................. [RUN]
+5 of 20 START sql table model dbt.dim_time ..................................... [RUN]
+5 of 20 OK created sql table model dbt.dim_time ................................ [[32mSUCCESS 1[0m in 2.01s]
+4 of 20 OK created sql table model dbt.dim_location ............................ [[32mSUCCESS 1[0m in 2.53s]
+3 of 20 OK created sql table model dbt.dim_event ............................... [[32mSUCCESS 1[0m in 4.38s]
+6 of 20 START sql table model dbt.fact_earthquake .............................. [RUN]
+6 of 20 OK created sql table model dbt.fact_earthquake ......................... [[32mSUCCESS 1[0m in 4.41s]
+7 of 20 START sql table model dbt.agg_avg_magnitude_by_location ................ [RUN]
+8 of 20 START sql table model dbt.agg_earthquake_counts_by_month ............... [RUN]
+9 of 20 START sql table model dbt.agg_earthquakes_by_depth_range ............... [RUN]
+10 of 20 START sql table model dbt.agg_earthquakes_by_location_time ............ [RUN]
+11 of 20 START sql table model dbt.agg_magnitude_and_tsunami_by_location ....... [RUN]
+12 of 20 START sql table model dbt.agg_total_alerts_by_event_type .............. [RUN]
+13 of 20 START sql table model dbt.agg_total_earthquakes_by_alert_level ........ [RUN]
+13 of 20 OK created sql table model dbt.agg_total_earthquakes_by_alert_level ... [[32mSUCCESS 1[0m in 1.50s]
+14 of 20 START sql view model dbt.presentation_total_earthquakes_by_alert_level  [RUN]
+9 of 20 OK created sql table model dbt.agg_earthquakes_by_depth_range .......... [[32mSUCCESS 1[0m in 1.53s]
+15 of 20 START sql view model dbt.presentation_earthquakes_by_depth_range ...... [RUN]
+11 of 20 ERROR creating sql table model dbt.agg_magnitude_and_tsunami_by_location  [[31mERROR[0m in 1.57s]
+16 of 20 SKIP relation dbt.presentation_magnitude_and_tsunami_by_location ...... [[33mSKIP[0m]
+12 of 20 OK created sql table model dbt.agg_total_alerts_by_event_type ......... [[32mSUCCESS 1[0m in 1.79s]
+17 of 20 START sql view model dbt.presentation_total_alerts_by_event_type ...... [RUN]
+8 of 20 OK created sql table model dbt.agg_earthquake_counts_by_month .......... [[32mSUCCESS 1[0m in 1.85s]
+18 of 20 START sql view model dbt.presentation_earthquake_counts_by_month ...... [RUN]
+7 of 20 ERROR creating sql table model dbt.agg_avg_magnitude_by_location ....... [[31mERROR[0m in 1.98s]
+19 of 20 SKIP relation dbt.presentation_avg_magnitude_by_location .............. [[33mSKIP[0m]
+10 of 20 ERROR creating sql table model dbt.agg_earthquakes_by_location_time ... [[31mERROR[0m in 1.98s]
+20 of 20 SKIP relation dbt.presentation_earthquakes_by_location_time ........... [[33mSKIP[0m]
+14 of 20 OK created sql view model dbt.presentation_total_earthquakes_by_alert_level  [[32mSUCCESS 1[0m in 0.72s]
+15 of 20 OK created sql view model dbt.presentation_earthquakes_by_depth_range . [[32mSUCCESS 1[0m in 0.81s]
+17 of 20 OK created sql view model dbt.presentation_total_alerts_by_event_type . [[32mSUCCESS 1[0m in 0.67s]
+18 of 20 OK created sql view model dbt.presentation_earthquake_counts_by_month . [[32mSUCCESS 1[0m in 0.70s]
+
+Finished running 13 table models, 7 view models in 0 hours 0 minutes and 35.36 seconds (35.36s).
+
+[31mCompleted with 3 errors and 0 warnings:[0m
+
+  Database Error in model agg_magnitude_and_tsunami_by_location (models/mart/agg_magnitude_and_tsunami_by_location.sql)
+  100038 (22018): Numeric value 'NULL' is not recognized
+  compiled Code at target/dbt_warehouse-ec64025-3d9e9e7/run/dbt_earthquake/models/mart/agg_magnitude_and_tsunami_by_location.sql
+
+  Database Error in model agg_avg_magnitude_by_location (models/mart/agg_avg_magnitude_by_location.sql)
+  100038 (22018): Numeric value 'NULL' is not recognized
+  compiled Code at target/dbt_warehouse-ec64025-3d9e9e7/run/dbt_earthquake/models/mart/agg_avg_magnitude_by_location.sql
+
+  Database Error in model agg_earthquakes_by_location_time (models/mart/agg_earthquakes_by_location_time.sql)
+  100038 (22018): Numeric value 'NULL' is not recognized
+  compiled Code at target/dbt_warehouse-ec64025-3d9e9e7/run/dbt_earthquake/models/mart/agg_earthquakes_by_location_time.sql
+
+Done. PASS=14 WARN=0 ERROR=3 SKIP=3 TOTAL=20

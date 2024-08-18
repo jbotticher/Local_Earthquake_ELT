@@ -1,0 +1,44 @@
+Running with dbt=1.7.2
+Registered adapter: snowflake=1.7.2
+Found 20 models, 1 source, 0 exposures, 0 metrics, 430 macros, 0 groups, 0 semantic models
+
+Concurrency: 10 threads (target='dev')
+
+1 of 20 START sql table model dbt.stg_flatten_raw .............................. [RUN]
+1 of 20 OK created sql table model dbt.stg_flatten_raw ......................... [[32mSUCCESS 1[0m in 19.04s]
+2 of 20 START sql table model dbt.stg_dedup_raw ................................ [RUN]
+2 of 20 OK created sql table model dbt.stg_dedup_raw ........................... [[32mSUCCESS 1[0m in 5.04s]
+3 of 20 START sql table model dbt.dim_event .................................... [RUN]
+4 of 20 START sql table model dbt.dim_location ................................. [RUN]
+5 of 20 START sql table model dbt.dim_time ..................................... [RUN]
+5 of 20 OK created sql table model dbt.dim_time ................................ [[32mSUCCESS 1[0m in 1.70s]
+4 of 20 OK created sql table model dbt.dim_location ............................ [[32mSUCCESS 1[0m in 2.64s]
+3 of 20 OK created sql table model dbt.dim_event ............................... [[32mSUCCESS 1[0m in 4.29s]
+6 of 20 START sql table model dbt.fact_earthquake .............................. [RUN]
+6 of 20 ERROR creating sql table model dbt.fact_earthquake ..................... [[31mERROR[0m in 0.58s]
+7 of 20 SKIP relation dbt.agg_avg_magnitude_by_location ........................ [[33mSKIP[0m]
+8 of 20 SKIP relation dbt.agg_earthquake_counts_by_month ....................... [[33mSKIP[0m]
+9 of 20 SKIP relation dbt.agg_earthquakes_by_depth_range ....................... [[33mSKIP[0m]
+10 of 20 SKIP relation dbt.agg_earthquakes_by_location_time .................... [[33mSKIP[0m]
+11 of 20 SKIP relation dbt.agg_magnitude_and_tsunami_by_location ............... [[33mSKIP[0m]
+12 of 20 SKIP relation dbt.agg_total_alerts_by_event_type ...................... [[33mSKIP[0m]
+13 of 20 SKIP relation dbt.agg_total_earthquakes_by_alert_level ................ [[33mSKIP[0m]
+14 of 20 SKIP relation dbt.presentation_avg_magnitude_by_location .............. [[33mSKIP[0m]
+15 of 20 SKIP relation dbt.presentation_earthquake_counts_by_month ............. [[33mSKIP[0m]
+16 of 20 SKIP relation dbt.presentation_earthquakes_by_depth_range ............. [[33mSKIP[0m]
+17 of 20 SKIP relation dbt.presentation_earthquakes_by_location_time ........... [[33mSKIP[0m]
+18 of 20 SKIP relation dbt.presentation_magnitude_and_tsunami_by_location ...... [[33mSKIP[0m]
+19 of 20 SKIP relation dbt.presentation_total_alerts_by_event_type ............. [[33mSKIP[0m]
+20 of 20 SKIP relation dbt.presentation_total_earthquakes_by_alert_level ....... [[33mSKIP[0m]
+
+Finished running 13 table models, 7 view models in 0 hours 0 minutes and 30.22 seconds (30.22s).
+
+[31mCompleted with 1 error and 0 warnings:[0m
+
+  Database Error in model fact_earthquake (models/facts/fact_earthquake.sql)
+  001003 (42000): SQL compilation error:
+  syntax error line 30 at position 5 unexpected '.'.
+  syntax error line 36 at position 11 unexpected 'f'.
+  compiled Code at target/dbt_warehouse-7762b01-8eae1cc/run/dbt_earthquake/models/facts/fact_earthquake.sql
+
+Done. PASS=5 WARN=0 ERROR=1 SKIP=14 TOTAL=20

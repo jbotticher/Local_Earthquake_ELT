@@ -1,0 +1,60 @@
+[32m2024-08-18 13:24:12 -0400[0m - dagster - [34mDEBUG[0m - dbt_earthquake - 7762b016-b079-4ef1-a5e4-40a18e191c78 - 42735 - LOGS_CAPTURED - Started capturing logs in process (pid: 42735).
+[32m2024-08-18 13:24:12 -0400[0m - dagster - [34mDEBUG[0m - dbt_earthquake - 7762b016-b079-4ef1-a5e4-40a18e191c78 - 42735 - dbt_warehouse - STEP_START - Started execution of step "dbt_warehouse".
+[32m2024-08-18 13:24:12 -0400[0m - dagster - [34mINFO[0m - dbt_earthquake - 7762b016-b079-4ef1-a5e4-40a18e191c78 - dbt_warehouse - A dbt subsetted execution is not being performed. Using the default dbt selection arguments `['--select', 'fqn:*']`.
+[32m2024-08-18 13:24:12 -0400[0m - dagster - [34mINFO[0m - dbt_earthquake - 7762b016-b079-4ef1-a5e4-40a18e191c78 - dbt_warehouse - Copying `/Users/joshuabotticher/dec-capstone/earthquake_elt/App/dbt_earthquake/warehouse/target/partial_parse.msgpack` to `/Users/joshuabotticher/dec-capstone/earthquake_elt/App/dbt_earthquake/warehouse/target/dbt_warehouse-7762b01-8eae1cc/partial_parse.msgpack` to take advantage of partial parsing.
+[32m2024-08-18 13:24:12 -0400[0m - dagster - [34mINFO[0m - dbt_earthquake - 7762b016-b079-4ef1-a5e4-40a18e191c78 - dbt_warehouse - Running dbt command: `dbt build --select fqn:*`.
+[32m2024-08-18 13:24:34 -0400[0m - dagster - [34mDEBUG[0m - dbt_earthquake - 7762b016-b079-4ef1-a5e4-40a18e191c78 - 42735 - dbt_warehouse - STEP_OUTPUT - Yielded output "model_dbt_earthquake_stg_flatten_raw" of type "Nothing". (Type check passed).
+[32m2024-08-18 13:24:34 -0400[0m - dagster - [34mDEBUG[0m - dbt_earthquake - 7762b016-b079-4ef1-a5e4-40a18e191c78 - 42735 - dbt_warehouse - ASSET_MATERIALIZATION - Materialized value stg_flatten_raw.
+[32m2024-08-18 13:24:39 -0400[0m - dagster - [34mDEBUG[0m - dbt_earthquake - 7762b016-b079-4ef1-a5e4-40a18e191c78 - 42735 - dbt_warehouse - STEP_OUTPUT - Yielded output "model_dbt_earthquake_stg_dedup_raw" of type "Nothing". (Type check passed).
+[32m2024-08-18 13:24:39 -0400[0m - dagster - [34mDEBUG[0m - dbt_earthquake - 7762b016-b079-4ef1-a5e4-40a18e191c78 - 42735 - dbt_warehouse - ASSET_MATERIALIZATION - Materialized value stg_dedup_raw.
+[32m2024-08-18 13:24:41 -0400[0m - dagster - [34mDEBUG[0m - dbt_earthquake - 7762b016-b079-4ef1-a5e4-40a18e191c78 - 42735 - dbt_warehouse - STEP_OUTPUT - Yielded output "model_dbt_earthquake_dim_time" of type "Nothing". (Type check passed).
+[32m2024-08-18 13:24:41 -0400[0m - dagster - [34mDEBUG[0m - dbt_earthquake - 7762b016-b079-4ef1-a5e4-40a18e191c78 - 42735 - dbt_warehouse - ASSET_MATERIALIZATION - Materialized value dim_time.
+[32m2024-08-18 13:24:42 -0400[0m - dagster - [34mDEBUG[0m - dbt_earthquake - 7762b016-b079-4ef1-a5e4-40a18e191c78 - 42735 - dbt_warehouse - STEP_OUTPUT - Yielded output "model_dbt_earthquake_dim_location" of type "Nothing". (Type check passed).
+[32m2024-08-18 13:24:42 -0400[0m - dagster - [34mDEBUG[0m - dbt_earthquake - 7762b016-b079-4ef1-a5e4-40a18e191c78 - 42735 - dbt_warehouse - ASSET_MATERIALIZATION - Materialized value dim_location.
+[32m2024-08-18 13:24:44 -0400[0m - dagster - [34mDEBUG[0m - dbt_earthquake - 7762b016-b079-4ef1-a5e4-40a18e191c78 - 42735 - dbt_warehouse - STEP_OUTPUT - Yielded output "model_dbt_earthquake_dim_event" of type "Nothing". (Type check passed).
+[32m2024-08-18 13:24:44 -0400[0m - dagster - [34mDEBUG[0m - dbt_earthquake - 7762b016-b079-4ef1-a5e4-40a18e191c78 - 42735 - dbt_warehouse - ASSET_MATERIALIZATION - Materialized value dim_event.
+[32m2024-08-18 13:24:45 -0400[0m - dagster - [34mINFO[0m - dbt_earthquake - 7762b016-b079-4ef1-a5e4-40a18e191c78 - dbt_warehouse - Finished dbt command: `dbt build --select fqn:*`.
+[32m2024-08-18 13:24:45 -0400[0m - dagster - [34mERROR[0m - [31mdbt_earthquake - 7762b016-b079-4ef1-a5e4-40a18e191c78 - 42735 - dbt_warehouse - STEP_FAILURE - Execution of step "dbt_warehouse" failed.
+
+dagster_dbt.errors.DagsterDbtCliRuntimeError: The dbt CLI process with command
+
+`dbt build --select fqn:*`
+
+failed with exit code `1`. Check the stdout in the Dagster compute logs for the full information about the error, or view the dbt debug log: /Users/joshuabotticher/dec-capstone/earthquake_elt/App/dbt_earthquake/warehouse/target/dbt_warehouse-7762b01-8eae1cc/dbt.log.
+
+Errors parsed from dbt logs:
+
+6 of 20 ERROR creating sql table model dbt.fact_earthquake ..................... [[31mERROR[0m in 0.58s]
+
+  Database Error in model fact_earthquake (models/facts/fact_earthquake.sql)
+  001003 (42000): SQL compilation error:
+  syntax error line 30 at position 5 unexpected '.'.
+  syntax error line 36 at position 11 unexpected 'f'.
+  compiled Code at target/dbt_warehouse-7762b01-8eae1cc/run/dbt_earthquake/models/facts/fact_earthquake.sql
+
+Stack Trace:
+  File "/Users/joshuabotticher/Library/Python/3.9/lib/python/site-packages/dagster/_core/execution/plan/execute_plan.py", line 247, in dagster_event_sequence_for_step
+    for step_event in check.generator(step_events):
+  File "/Users/joshuabotticher/Library/Python/3.9/lib/python/site-packages/dagster/_core/execution/plan/execute_step.py", line 500, in core_dagster_event_sequence_for_step
+    for user_event in _step_output_error_checked_user_event_sequence(
+  File "/Users/joshuabotticher/Library/Python/3.9/lib/python/site-packages/dagster/_core/execution/plan/execute_step.py", line 184, in _step_output_error_checked_user_event_sequence
+    for user_event in user_event_sequence:
+  File "/Users/joshuabotticher/Library/Python/3.9/lib/python/site-packages/dagster/_core/execution/plan/execute_step.py", line 88, in _process_asset_results_to_events
+    for user_event in user_event_sequence:
+  File "/Users/joshuabotticher/Library/Python/3.9/lib/python/site-packages/dagster/_core/execution/plan/compute.py", line 198, in execute_core_compute
+    for step_output in _yield_compute_results(step_context, inputs, compute_fn, compute_context):
+  File "/Users/joshuabotticher/Library/Python/3.9/lib/python/site-packages/dagster/_core/execution/plan/compute.py", line 167, in _yield_compute_results
+    for event in iterate_with_context(
+  File "/Users/joshuabotticher/Library/Python/3.9/lib/python/site-packages/dagster/_utils/__init__.py", line 474, in iterate_with_context
+    next_output = next(iterator)
+  File "/Users/joshuabotticher/dec-capstone/earthquake_elt/App/dagster_elt/dagster_elt/assets/dbt/dbt.py", line 31, in dbt_warehouse
+    yield from dbt_warehouse_resource.cli(["build"], context=context).stream()
+  File "/Users/joshuabotticher/Library/Python/3.9/lib/python/site-packages/dagster_dbt/core/dbt_event_iterator.py", line 203, in __next__
+    return next(self._inner_iterator)
+  File "/Users/joshuabotticher/Library/Python/3.9/lib/python/site-packages/dagster_dbt/core/dbt_cli_invocation.py", line 269, in _stream_asset_events
+    for event in self.stream_raw_events():
+  File "/Users/joshuabotticher/Library/Python/3.9/lib/python/site-packages/dagster_dbt/core/dbt_cli_invocation.py", line 362, in stream_raw_events
+    self._raise_on_error()
+  File "/Users/joshuabotticher/Library/Python/3.9/lib/python/site-packages/dagster_dbt/core/dbt_cli_invocation.py", line 454, in _raise_on_error
+    raise error
+[0m

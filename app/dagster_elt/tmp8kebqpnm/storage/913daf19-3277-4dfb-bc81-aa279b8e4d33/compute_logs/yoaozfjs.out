@@ -1,0 +1,16 @@
+Running with dbt=1.7.2
+Registered adapter: snowflake=1.7.2
+Found 20 models, 1 source, 0 exposures, 0 metrics, 430 macros, 0 groups, 0 semantic models
+
+Concurrency: 10 threads (target='dev')
+
+1 of 2 START sql table model dbt.agg_magnitude_and_tsunami_by_location ......... [RUN]
+1 of 2 OK created sql table model dbt.agg_magnitude_and_tsunami_by_location .... [[32mSUCCESS 1[0m in 1.94s]
+2 of 2 START sql view model dbt.presentation_magnitude_and_tsunami_by_location . [RUN]
+2 of 2 OK created sql view model dbt.presentation_magnitude_and_tsunami_by_location  [[32mSUCCESS 1[0m in 0.81s]
+
+Finished running 1 table model, 1 view model in 0 hours 0 minutes and 3.88 seconds (3.88s).
+
+[32mCompleted successfully[0m
+
+Done. PASS=2 WARN=0 ERROR=0 SKIP=0 TOTAL=2

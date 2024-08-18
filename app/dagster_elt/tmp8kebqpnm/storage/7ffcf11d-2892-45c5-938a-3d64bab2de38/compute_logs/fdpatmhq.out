@@ -1,0 +1,69 @@
+Running with dbt=1.7.2
+Registered adapter: snowflake=1.7.2
+Found 20 models, 1 source, 0 exposures, 0 metrics, 430 macros, 0 groups, 0 semantic models
+
+Concurrency: 10 threads (target='dev')
+
+1 of 20 START sql table model dbt.stg_flatten_raw .............................. [RUN]
+1 of 20 OK created sql table model dbt.stg_flatten_raw ......................... [[32mSUCCESS 1[0m in 20.82s]
+2 of 20 START sql table model dbt.stg_dedup_raw ................................ [RUN]
+2 of 20 OK created sql table model dbt.stg_dedup_raw ........................... [[32mSUCCESS 1[0m in 5.69s]
+3 of 20 START sql table model dbt.dim_event .................................... [RUN]
+4 of 20 START sql table model dbt.dim_location ................................. [RUN]
+5 of 20 START sql table model dbt.dim_time ..................................... [RUN]
+4 of 20 OK created sql table model dbt.dim_location ............................ [[32mSUCCESS 1[0m in 2.54s]
+5 of 20 OK created sql table model dbt.dim_time ................................ [[32mSUCCESS 1[0m in 3.10s]
+3 of 20 OK created sql table model dbt.dim_event ............................... [[32mSUCCESS 1[0m in 4.24s]
+6 of 20 START sql table model dbt.fact_earthquake .............................. [RUN]
+6 of 20 OK created sql table model dbt.fact_earthquake ......................... [[32mSUCCESS 1[0m in 4.71s]
+7 of 20 START sql table model dbt.agg_avg_magnitude_by_location ................ [RUN]
+8 of 20 START sql table model dbt.agg_earthquake_counts_by_month ............... [RUN]
+9 of 20 START sql table model dbt.agg_earthquakes_by_depth_range ............... [RUN]
+10 of 20 START sql table model dbt.agg_earthquakes_by_location_time ............ [RUN]
+11 of 20 START sql table model dbt.agg_magnitude_and_tsunami_by_location ....... [RUN]
+12 of 20 START sql table model dbt.agg_total_alerts_by_event_type .............. [RUN]
+13 of 20 START sql table model dbt.agg_total_earthquakes_by_alert_level ........ [RUN]
+11 of 20 ERROR creating sql table model dbt.agg_magnitude_and_tsunami_by_location  [[31mERROR[0m in 0.99s]
+14 of 20 SKIP relation dbt.presentation_magnitude_and_tsunami_by_location ...... [[33mSKIP[0m]
+10 of 20 ERROR creating sql table model dbt.agg_earthquakes_by_location_time ... [[31mERROR[0m in 1.03s]
+15 of 20 SKIP relation dbt.presentation_earthquakes_by_location_time ........... [[33mSKIP[0m]
+7 of 20 ERROR creating sql table model dbt.agg_avg_magnitude_by_location ....... [[31mERROR[0m in 1.05s]
+16 of 20 SKIP relation dbt.presentation_avg_magnitude_by_location .............. [[33mSKIP[0m]
+9 of 20 ERROR creating sql table model dbt.agg_earthquakes_by_depth_range ...... [[31mERROR[0m in 1.11s]
+17 of 20 SKIP relation dbt.presentation_earthquakes_by_depth_range ............. [[33mSKIP[0m]
+12 of 20 OK created sql table model dbt.agg_total_alerts_by_event_type ......... [[32mSUCCESS 1[0m in 1.58s]
+18 of 20 START sql view model dbt.presentation_total_alerts_by_event_type ...... [RUN]
+8 of 20 OK created sql table model dbt.agg_earthquake_counts_by_month .......... [[32mSUCCESS 1[0m in 1.75s]
+19 of 20 START sql view model dbt.presentation_earthquake_counts_by_month ...... [RUN]
+13 of 20 OK created sql table model dbt.agg_total_earthquakes_by_alert_level ... [[32mSUCCESS 1[0m in 1.86s]
+20 of 20 START sql view model dbt.presentation_total_earthquakes_by_alert_level  [RUN]
+18 of 20 OK created sql view model dbt.presentation_total_alerts_by_event_type . [[32mSUCCESS 1[0m in 0.98s]
+19 of 20 OK created sql view model dbt.presentation_earthquake_counts_by_month . [[32mSUCCESS 1[0m in 0.85s]
+20 of 20 OK created sql view model dbt.presentation_total_earthquakes_by_alert_level  [[32mSUCCESS 1[0m in 0.79s]
+
+Finished running 13 table models, 7 view models in 0 hours 0 minutes and 39.62 seconds (39.62s).
+
+[31mCompleted with 4 errors and 0 warnings:[0m
+
+  Database Error in model agg_magnitude_and_tsunami_by_location (models/mart/agg_magnitude_and_tsunami_by_location.sql)
+  000904 (42000): SQL compilation error: error line 5 at position 4
+  invalid identifier 'L.LOCATION_NAME'
+  compiled Code at target/dbt_warehouse-7ffcf11-6a1efef/run/dbt_earthquake/models/mart/agg_magnitude_and_tsunami_by_location.sql
+
+  Database Error in model agg_earthquakes_by_location_time (models/mart/agg_earthquakes_by_location_time.sql)
+  000904 (42000): SQL compilation error: error line 14 at position 11
+  invalid identifier 'F.EVENT_TIME'
+  compiled Code at target/dbt_warehouse-7ffcf11-6a1efef/run/dbt_earthquake/models/mart/agg_earthquakes_by_location_time.sql
+
+  Database Error in model agg_avg_magnitude_by_location (models/mart/agg_avg_magnitude_by_location.sql)
+  001003 (42000): SQL compilation error:
+  syntax error line 6 at position 4 unexpected 'AVG'.
+  syntax error line 10 at position 7 unexpected 'f'.
+  compiled Code at target/dbt_warehouse-7ffcf11-6a1efef/run/dbt_earthquake/models/mart/agg_avg_magnitude_by_location.sql
+
+  Database Error in model agg_earthquakes_by_depth_range (models/mart/agg_earthquakes_by_depth_range.sql)
+  001104 (42601): SQL compilation error: error line 16 at position 4
+  'DEPTH_RANGES.DEPTH' in select clause is neither an aggregate nor in the group by clause.
+  compiled Code at target/dbt_warehouse-7ffcf11-6a1efef/run/dbt_earthquake/models/mart/agg_earthquakes_by_depth_range.sql
+
+Done. PASS=12 WARN=0 ERROR=4 SKIP=4 TOTAL=20

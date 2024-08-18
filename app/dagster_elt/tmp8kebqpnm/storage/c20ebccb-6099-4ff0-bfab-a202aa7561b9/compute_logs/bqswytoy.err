@@ -1,0 +1,29 @@
+[32m2024-08-18 15:26:35 -0400[0m - dagster - [34mDEBUG[0m - earthquake_pipeline - c20ebccb-6099-4ff0-bfab-a202aa7561b9 - 51257 - LOGS_CAPTURED - Started capturing logs in process (pid: 51257).
+[32m2024-08-18 15:26:35 -0400[0m - dagster - [34mDEBUG[0m - earthquake_pipeline - c20ebccb-6099-4ff0-bfab-a202aa7561b9 - 51257 - raw_earthquake - STEP_START - Started execution of step "raw_earthquake".
+[32m2024-08-18 15:26:35 -0400[0m - dagster - [34mINFO[0m - earthquake_pipeline - c20ebccb-6099-4ff0-bfab-a202aa7561b9 - raw_earthquake - Triggering Airbyte sync for connection ID: 6ea9dba8-00d9-497d-a0ec-e9b30bf2363a
+[32m2024-08-18 15:26:35 -0400[0m - dagster - [34mINFO[0m - earthquake_pipeline - c20ebccb-6099-4ff0-bfab-a202aa7561b9 - raw_earthquake - Checking Airbyte server health at http://localhost:8001/api/public/v1/health
+[32m2024-08-18 15:26:35 -0400[0m - dagster - [34mINFO[0m - earthquake_pipeline - c20ebccb-6099-4ff0-bfab-a202aa7561b9 - raw_earthquake - Airbyte connection is valid.
+[32m2024-08-18 15:26:35 -0400[0m - dagster - [34mINFO[0m - earthquake_pipeline - c20ebccb-6099-4ff0-bfab-a202aa7561b9 - raw_earthquake - Triggering Airbyte sync job with connection ID: 6ea9dba8-00d9-497d-a0ec-e9b30bf2363a at http://localhost:8001/api/public/v1/jobs
+[32m2024-08-18 15:26:41 -0400[0m - dagster - [34mDEBUG[0m - earthquake_pipeline - c20ebccb-6099-4ff0-bfab-a202aa7561b9 - raw_earthquake - Sync job trigger response: Status code: 409 - Response text: {"status":409,"type":"https://reference.airbyte.com/reference/errors#try-again-later","title":"try-again-later","detail":"Please try again later.","documentationUrl":null,"data":{"message":"A sync is already running for: 6ea9dba8-00d9-497d-a0ec-e9b30bf2363a"}}
+[32m2024-08-18 15:26:41 -0400[0m - dagster - [34mERROR[0m - [31mearthquake_pipeline - c20ebccb-6099-4ff0-bfab-a202aa7561b9 - raw_earthquake - Failed to trigger sync. Status code: 409. Error message: {"status":409,"type":"https://reference.airbyte.com/reference/errors#try-again-later","title":"try-again-later","detail":"Please try again later.","documentationUrl":null,"data":{"message":"A sync is already running for: 6ea9dba8-00d9-497d-a0ec-e9b30bf2363a"}}[0m
+[32m2024-08-18 15:26:41 -0400[0m - dagster - [34mERROR[0m - [31mearthquake_pipeline - c20ebccb-6099-4ff0-bfab-a202aa7561b9 - raw_earthquake - Error triggering or checking Airbyte sync: Failed to trigger sync. Status code: 409. Error message: {"status":409,"type":"https://reference.airbyte.com/reference/errors#try-again-later","title":"try-again-later","detail":"Please try again later.","documentationUrl":null,"data":{"message":"A sync is already running for: 6ea9dba8-00d9-497d-a0ec-e9b30bf2363a"}}[0m
+[32m2024-08-18 15:26:43 -0400[0m - dagster - [34mERROR[0m - [31mearthquake_pipeline - c20ebccb-6099-4ff0-bfab-a202aa7561b9 - 51257 - raw_earthquake - STEP_FAILURE - Execution of step "raw_earthquake" failed.
+
+dagster._core.errors.DagsterExecutionStepExecutionError: Error occurred while executing op "raw_earthquake"::
+
+Exception: Failed to trigger sync. Status code: 409. Error message: {"status":409,"type":"https://reference.airbyte.com/reference/errors#try-again-later","title":"try-again-later","detail":"Please try again later.","documentationUrl":null,"data":{"message":"A sync is already running for: 6ea9dba8-00d9-497d-a0ec-e9b30bf2363a"}}
+
+Stack Trace:
+  File "/Users/joshuabotticher/Library/Python/3.9/lib/python/site-packages/dagster/_core/execution/plan/utils.py", line 54, in op_execution_error_boundary
+    yield
+  File "/Users/joshuabotticher/Library/Python/3.9/lib/python/site-packages/dagster/_utils/__init__.py", line 474, in iterate_with_context
+    next_output = next(iterator)
+  File "/Users/joshuabotticher/Library/Python/3.9/lib/python/site-packages/dagster/_core/execution/plan/compute_generator.py", line 141, in _coerce_op_compute_fn_to_iterator
+    result = invoke_compute_fn(
+  File "/Users/joshuabotticher/Library/Python/3.9/lib/python/site-packages/dagster/_core/execution/plan/compute_generator.py", line 129, in invoke_compute_fn
+    return fn(context, **args_to_pass) if context_arg_provided else fn(**args_to_pass)
+  File "/Users/joshuabotticher/dec-capstone/earthquake_elt/App/dagster_elt/dagster_elt/assets/airbyte/airbyte.py", line 83, in raw_earthquake
+    job_id = trigger_sync(airbyte_conn.connection_id)
+  File "/Users/joshuabotticher/dec-capstone/earthquake_elt/App/dagster_elt/dagster_elt/assets/airbyte/airbyte.py", line 59, in trigger_sync
+    raise Exception(f"Failed to trigger sync. Status code: {response.status_code}. Error message: {response.text}")
+[0m

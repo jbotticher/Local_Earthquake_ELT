@@ -1,0 +1,48 @@
+Running with dbt=1.7.2
+Registered adapter: snowflake=1.7.2
+Found 20 models, 1 source, 0 exposures, 0 metrics, 430 macros, 0 groups, 0 semantic models
+
+Concurrency: 10 threads (target='dev')
+
+1 of 18 START sql table model dbt.stg_flatten_raw .............................. [RUN]
+1 of 18 OK created sql table model dbt.stg_flatten_raw ......................... [[32mSUCCESS 1[0m in 17.12s]
+2 of 18 START sql table model dbt.stg_dedup_raw ................................ [RUN]
+2 of 18 OK created sql table model dbt.stg_dedup_raw ........................... [[32mSUCCESS 1[0m in 5.28s]
+3 of 18 START sql table model dbt.dim_event .................................... [RUN]
+4 of 18 START sql table model dbt.dim_location ................................. [RUN]
+5 of 18 START sql table model dbt.dim_time ..................................... [RUN]
+5 of 18 OK created sql table model dbt.dim_time ................................ [[32mSUCCESS 1[0m in 1.91s]
+4 of 18 OK created sql table model dbt.dim_location ............................ [[32mSUCCESS 1[0m in 2.27s]
+3 of 18 OK created sql table model dbt.dim_event ............................... [[32mSUCCESS 1[0m in 4.07s]
+6 of 18 START sql table model dbt.fact_earthquake .............................. [RUN]
+6 of 18 OK created sql table model dbt.fact_earthquake ......................... [[32mSUCCESS 1[0m in 4.26s]
+7 of 18 START sql table model dbt.agg_avg_magnitude_by_location ................ [RUN]
+8 of 18 START sql table model dbt.agg_earthquake_counts_by_month ............... [RUN]
+9 of 18 START sql table model dbt.agg_earthquakes_by_depth_range ............... [RUN]
+10 of 18 START sql table model dbt.agg_earthquakes_by_location_time ............ [RUN]
+11 of 18 START sql table model dbt.agg_total_alerts_by_event_type .............. [RUN]
+12 of 18 START sql table model dbt.agg_total_earthquakes_by_alert_level ........ [RUN]
+12 of 18 OK created sql table model dbt.agg_total_earthquakes_by_alert_level ... [[32mSUCCESS 1[0m in 1.22s]
+9 of 18 OK created sql table model dbt.agg_earthquakes_by_depth_range .......... [[32mSUCCESS 1[0m in 1.22s]
+11 of 18 OK created sql table model dbt.agg_total_alerts_by_event_type ......... [[32mSUCCESS 1[0m in 1.22s]
+13 of 18 START sql view model dbt.presentation_total_earthquakes_by_alert_level  [RUN]
+14 of 18 START sql view model dbt.presentation_earthquakes_by_depth_range ...... [RUN]
+15 of 18 START sql view model dbt.presentation_total_alerts_by_event_type ...... [RUN]
+8 of 18 OK created sql table model dbt.agg_earthquake_counts_by_month .......... [[32mSUCCESS 1[0m in 1.64s]
+16 of 18 START sql view model dbt.presentation_earthquake_counts_by_month ...... [RUN]
+13 of 18 OK created sql view model dbt.presentation_total_earthquakes_by_alert_level  [[32mSUCCESS 1[0m in 0.89s]
+15 of 18 OK created sql view model dbt.presentation_total_alerts_by_event_type . [[32mSUCCESS 1[0m in 0.88s]
+10 of 18 OK created sql table model dbt.agg_earthquakes_by_location_time ....... [[32mSUCCESS 1[0m in 2.13s]
+17 of 18 START sql view model dbt.presentation_earthquakes_by_location_time .... [RUN]
+14 of 18 OK created sql view model dbt.presentation_earthquakes_by_depth_range . [[32mSUCCESS 1[0m in 0.90s]
+16 of 18 OK created sql view model dbt.presentation_earthquake_counts_by_month . [[32mSUCCESS 1[0m in 0.63s]
+7 of 18 OK created sql table model dbt.agg_avg_magnitude_by_location ........... [[32mSUCCESS 1[0m in 2.53s]
+18 of 18 START sql view model dbt.presentation_avg_magnitude_by_location ....... [RUN]
+17 of 18 OK created sql view model dbt.presentation_earthquakes_by_location_time  [[32mSUCCESS 1[0m in 0.67s]
+18 of 18 OK created sql view model dbt.presentation_avg_magnitude_by_location .. [[32mSUCCESS 1[0m in 0.78s]
+
+Finished running 12 table models, 6 view models in 0 hours 0 minutes and 35.42 seconds (35.42s).
+
+[32mCompleted successfully[0m
+
+Done. PASS=18 WARN=0 ERROR=0 SKIP=0 TOTAL=18
