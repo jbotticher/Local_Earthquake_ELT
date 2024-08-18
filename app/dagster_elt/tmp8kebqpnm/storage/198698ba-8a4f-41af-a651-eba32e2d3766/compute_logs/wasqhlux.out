@@ -1,0 +1,24 @@
+Running with dbt=1.7.2
+Registered adapter: snowflake=1.7.2
+Found 6 models, 1 source, 0 exposures, 0 metrics, 430 macros, 0 groups, 0 semantic models
+
+Concurrency: 10 threads (target='dev')
+
+1 of 6 START sql table model dbt.stg_flatten_raw ............................... [RUN]
+1 of 6 OK created sql table model dbt.stg_flatten_raw .......................... [[32mSUCCESS 1[0m in 17.89s]
+2 of 6 START sql table model dbt.stg_dedup_raw ................................. [RUN]
+2 of 6 OK created sql table model dbt.stg_dedup_raw ............................ [[32mSUCCESS 1[0m in 5.20s]
+3 of 6 START sql table model dbt.dim_event ..................................... [RUN]
+4 of 6 START sql table model dbt.dim_location .................................. [RUN]
+5 of 6 START sql table model dbt.dim_time ...................................... [RUN]
+4 of 6 OK created sql table model dbt.dim_location ............................. [[32mSUCCESS 1[0m in 2.18s]
+5 of 6 OK created sql table model dbt.dim_time ................................. [[32mSUCCESS 1[0m in 2.22s]
+3 of 6 OK created sql table model dbt.dim_event ................................ [[32mSUCCESS 1[0m in 4.12s]
+6 of 6 START sql table model dbt.fact_earthquake ............................... [RUN]
+6 of 6 OK created sql table model dbt.fact_earthquake .......................... [[32mSUCCESS 1[0m in 3.85s]
+
+Finished running 6 table models in 0 hours 0 minutes and 32.56 seconds (32.56s).
+
+[32mCompleted successfully[0m
+
+Done. PASS=6 WARN=0 ERROR=0 SKIP=0 TOTAL=6

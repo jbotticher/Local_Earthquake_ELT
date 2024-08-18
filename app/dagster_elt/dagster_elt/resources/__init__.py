@@ -5,3 +5,5 @@ class AirbyteResource(ConfigurableResource):
     username: str
     password: str
     connection_id: str
+
+
