@@ -30,5 +30,6 @@ The objective of this project is to create a real-time monitoring system that vi
 
 
 ## Modeling
-![dim_model_earthquakes drawio](https://github.com/user-attachments/assets/773c7714-f0e6-408d-b522-f668ba466f00)
+![image](https://github.com/user-attachments/assets/1e76324c-9764-404b-8166-d5215554b3bf)
+
 
