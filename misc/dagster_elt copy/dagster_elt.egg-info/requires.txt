@@ -1,0 +1,10 @@
+dagster
+dagster-cloud
+dagster-airbyte
+dagster-dbt
+dbt-core==1.7.2
+dbt-snowflake==1.7.2
+
+[dev]
+dagster-webserver
+pytest

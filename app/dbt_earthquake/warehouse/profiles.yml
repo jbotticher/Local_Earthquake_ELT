@@ -1,0 +1,16 @@
+version: 2
+
+dbt_earthquake:
+  outputs:
+    dev:
+      type: snowflake
+      account: LRKONNZ-EPB14671
+      user: jjbotticher
+      password: MINIlogo112!!
+      role: accountadmin
+      database: earthquake
+      warehouse: 
+      schema: dbt
+      threads: 10
+      client_session_keep_alive: False
+  target: dev
