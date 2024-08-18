@@ -1,6 +1,0 @@
-sources:
-  - name: earthquake
-    database: earthquake
-    schema: earthquake
-    tables:
-      - name: earthquake_data_raw
