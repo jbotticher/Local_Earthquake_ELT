@@ -5,8 +5,8 @@ dbt_earthquake:
     dev:
       type: snowflake
       account: LRKONNZ-EPB14671
-      user: jjbotticher
-      password: MINIlogo112!!
+      user: 
+      password: 
       role: accountadmin
       database: earthquake
       warehouse: 
