@@ -29,4 +29,8 @@ The objective of this project is to create a real-time monitoring system that vi
 ## Architecture:
 ![architecture_earthquakes drawio-3](https://github.com/user-attachments/assets/ee4deb94-5733-4279-b6d0-1a2c31fd109c)
 
-
+## Instructions:
+1) Clone the repo.
+2) Deploy Airbyte on your local. See Airbyte docs: https://docs.airbyte.com/deploying-airbyte/docker-compose
+3) Deploy Dagster on your local. See dagster docs: https://docs.dagster.io/guides/running-dagster-locally
+4) Update the .env variables as needed.
