@@ -33,4 +33,5 @@ The objective of this project is to create a real-time monitoring system that vi
 1) Clone the repo.
 2) Deploy Airbyte on your local. See Airbyte docs: https://docs.airbyte.com/deploying-airbyte/docker-compose
 3) Deploy Dagster on your local. See dagster docs: https://docs.dagster.io/guides/running-dagster-locally
-4) Update the .env variables as needed.
+4) Create an AWS account and create an S3 bucket. See AWS docs: https://docs.aws.amazon.com/AmazonS3/latest/userguide/GetStartedWithS3.html#creating-bucket
+5) Update the .env variables as needed.
