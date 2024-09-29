@@ -1,3 +1,4 @@
+# ![dataengineercamp_logo](https://github.com/user-attachments/assets/5e669390-1404-4b18-9380-6cc2ac2a5e39) 
 # [Data Engineer Camp](https://dataengineercamp.com): Capstone Project
 
 ## **Earthquakes ELT: Production Version**
