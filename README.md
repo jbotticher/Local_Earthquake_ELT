@@ -1,7 +1,9 @@
 # Data Engineering Camp Capstone Project
 
-## **Earthquakes ELT**
-_Joshua Botticher_
+## **Earthquakes ELT: Production Version**
+Author: _Joshua Botticher_
+
+** See Local_Earthquake_ELT repo for Local code version **
 
 ## Objective:
 The objective of this project is to create a real-time monitoring system that visualizes earthquake data, and dashboards using historical data from the USGS Earthquake API for public use.
@@ -12,7 +14,7 @@ The objective of this project is to create a real-time monitoring system that vi
 - Educators: They require the data to teach seismic activity and its impacts.
 - General Public: They seek to understand earthquake risks and safety measures.
 
-## Questions We Want To Answer:
+## Questions I Want To Answer:
 1) What are the most recent earthquakes and their magnitudes?
 2) Which regions are experiencing the highest frequency of earthquakes?
 3) What are the patterns and trends in seismic activity over the past year?
@@ -25,11 +27,6 @@ The objective of this project is to create a real-time monitoring system that vi
 
 
 ## Architecture:
-<img width="668" alt="Architecture" src="https://github.com/user-attachments/assets/1055687a-fff1-47a5-b144-bdfdd57ea103">
-
-
-
-## Modeling
-![image](https://github.com/user-attachments/assets/1e76324c-9764-404b-8166-d5215554b3bf)
+![architecture_earthquakes drawio-3](https://github.com/user-attachments/assets/ee4deb94-5733-4279-b6d0-1a2c31fd109c)
 
 
