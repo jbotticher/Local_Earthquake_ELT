@@ -1,10 +1,10 @@
 # ![dataengineercamp_logo](https://github.com/user-attachments/assets/5e669390-1404-4b18-9380-6cc2ac2a5e39) 
 # [Data Engineer Camp](https://dataengineercamp.com): Capstone Project
 
-## **Earthquakes ELT: Production Version**
+## **Earthquakes ELT: Local Version**
 Author: _Joshua Botticher_
 
-** See Local_Earthquake_ELT repo for Local code version **
+** See DagsterCloud_Earthquake_ELT repo for production code version **
 
 ## Objective:
 The objective of this project is to create a real-time monitoring system that visualizes earthquake data, and dashboards using historical data from the USGS Earthquake API for public use.
