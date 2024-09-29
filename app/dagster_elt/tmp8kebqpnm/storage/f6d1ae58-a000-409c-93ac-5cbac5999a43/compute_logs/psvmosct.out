@@ -1,8 +1,0 @@
-Running with dbt=1.7.2
-Registered adapter: snowflake=1.7.2
-Found 6 models, 1 source, 0 exposures, 0 metrics, 430 macros, 0 groups, 0 semantic models
-
-Concurrency: 10 threads (target='dev')
-
-1 of 6 START sql table model dbt.stg_flatten_raw ............................... [RUN]
-1 of 6 OK created sql table model dbt.stg_flatten_raw .......................... [[32mSUCCESS 1[0m in 18.58s]
